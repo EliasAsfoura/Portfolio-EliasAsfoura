@@ -1,13 +1,14 @@
 .ExpBox {
     display: flex;
     width: 600px;
-    margin-left: 30%;
-    margin-top: 10%;
+    margin-left: 23%;
+    margin-top: 15%;
     flex-direction: column;
+    color: white;
 }
 
 .AvatarStyle {
-    width: 80px;
+    width: 90px;
     border-radius: 50px;
     border: 2px solid white;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -26,19 +27,43 @@
     background-color: black;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .buttonLinkedin:hover {
-    box-shadow: 0 4px 15px rgb(150, 150, 150);
+    box-shadow: 0 4px 15px #0A66C2;
+    transform: scale(1.02);
+}
+
+.buttonGitHub {
+    width: 100px;
+    color: aliceblue;
+    font-weight: 300;
+    border: 1px solid white;
+    background-color: black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.buttonGitHub:hover {
+    box-shadow: 0 4px 15px #00b93e;
+    color: #00b93e;
     transform: scale(1.02);
 }
 
 @media (max-width: 768px) {
     .ExpBox {
-        padding: 20px;
-        margin-left: 0;
+        margin-left: 10px;
         width: 100%;
+    }
+}
+
+@media (min-width: 1920px) {
+    .ExpBox {
+        margin-left: 30%;
+        
     }
 }

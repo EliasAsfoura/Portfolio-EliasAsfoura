@@ -1,12 +1,11 @@
-
 .EstudiosBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(90%, 720px);
+    margin: 30px auto;
+    color: white;
 }
-
 
 .EstudiosList {
   display: flex;
@@ -23,6 +22,12 @@
   transition: transform 0.2s ease;
 }
 
+@media (max-width: 768px) {
+  .EstudioCard {
+    width: 280px;
+  }
+}
+
 .EstudioCard:hover {
   transform: scale(1.03);
   box-shadow: 0 4px 15px rgb(150, 150, 150);
@@ -31,6 +36,25 @@
 .EstudioCard h3 {
   margin-bottom: 5px;
   color: #0166ff;
+}
+
+.EstudioCard a {
+  background-color: black;
+  border-radius: 550px;
+  font-size: small;
+  font-weight: 300;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 5px;
+  color: #0166ff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.EstudioCard a:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgb(150, 150, 150);
 }
 
 .descripcion {

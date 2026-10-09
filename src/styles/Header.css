@@ -1,39 +1,159 @@
+
 html {
   scroll-behavior: smooth;
 }
 
 .header {
+  box-sizing: border-box;
   position: fixed;
-  top: 20px;                  
+  top: 20px;
   left: 50%;
-  transform: translateX(-50%); 
-  width: 600px;               
-  background-color: rgba(17, 17, 17, 0.70);
-  border-radius: 50px;
+  transform: translateX(-50%);
+  width: 600px;
   padding: 10px 20px;
+
   display: flex;
   justify-content: center;
-  z-index: 1;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+  background-color: rgba(17, 24, 39, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  z-index: 1000;
 }
 
+/* Barra transparente al inicio y translúcida al hacer scroll */
+@supports (animation-timeline: scroll()) {
+  .header {
+    background-color: transparent;
+    border-color: transparent;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+    box-shadow: none;
+
+    animation: header-appear 1s linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px 100px;
+  }
+}
+
+@keyframes header-appear {
+  from {
+    background-color: transparent;
+    border-color: transparent;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+    box-shadow: none;
+  }
+
+  to {
+    background-color: rgba(17, 24, 39, 0.8);
+    border-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Navegación */
 .nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 4px;
   width: 100%;
 }
 
 .nav button {
-  font-family: "Tactic Sans";  
-  background: none;
+  font-family: "Poppins", sans-serif;
+  background: transparent;
   border: none;
-  color: white;
-  font-size: 16px;
+  border-radius: 30px;
+
+  color: #d1d5db;
+  font-size: 18px;
+  font-weight: 500;
+
+  padding: 8px 12px;
+  white-space: nowrap;
   cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
+
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
 }
 
+/* Efecto hover */
 .nav button:hover {
   color: #0166ff;
-  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+/* Sección activa */
+.nav button.active {
+  color: #0378e6;
+  background-color: #0378e62f;
+  
+}
+
+/* Tablets y celulares */
+@media (max-width: 768px) {
+  .header {
+    width: 350px;
+    top: 10px;
+    padding: 8px 12px;
+  }
+
+  .nav button {
+    font-size: 14px;
+    padding: 7px 5px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 375px) {
+  .header {
+    width: 280px;
+  }
+
+  .nav button {
+    font-size: 14px;
+    padding: 7px 4px;
+  }
+}
+
+/* Celulares muy pequeños */
+@media (max-width: 320px) {
+  .header {
+    width: 250px;
+    padding: 7px 8px;
+  }
+
+  .nav {
+    gap: 2px;
+  }
+
+  .nav button {
+    font-size: 12px;
+    padding: 6px 3px;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    animation: none;
+    background-color: rgba(17, 24, 39, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .nav button {
+    transition: none;
+  }
 }

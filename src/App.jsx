@@ -8,8 +8,8 @@ function App() {
     <>
 
     <Router>
-      <Routes path= "/" navigate="/home">
-        <Route path="/home" element={<Home/>}/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
       </Routes>
     </Router>
 

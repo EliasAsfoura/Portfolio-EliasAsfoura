@@ -6,7 +6,10 @@ const SoftSkills = () => {
     return (
 
         <div className="SoftSkillsBox">
-            <h1>Soft Skills</h1>
+            <div className="ConfigTitulos">
+                <h1>Soft Skills</h1>
+                <div className="linea-decorativa" aria-hidden="true"></div>
+            </div>
             <div className="SoftSkillsList">
                 {softSkills.map((skill, index) => (
                     <div key={index} className="SoftSkillCard">

@@ -1,7 +1,7 @@
 :root {
-  font-family: "tactic sans";
+  font-family: 'Poppins', sans-serif;
   line-height: 1.5;
-  color-scheme: light dark;
+  padding: 10px;
 }
 
 @font-face {
@@ -36,4 +36,44 @@ a:hover {
 
 body {
   margin: 0;
+  background-image: linear-gradient(180deg, #060e1e 0%, 50%, #0d2860 100%);
+}
+
+
+/* Aparición sutil al hacer scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 800ms ease-out,
+    transform 800ms ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.linea-decorativa {
+  height: 1px;
+  width: 80px;
+  background: linear-gradient(
+    to right,
+    #0285ff,
+    transparent
+  );
+}
+
+.ConfigTitulos {
+  width: 100%;
+  margin: 0 0 24px;
+  line-height: 8px;
 }

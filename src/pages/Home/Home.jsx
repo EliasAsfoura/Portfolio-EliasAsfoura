@@ -2,41 +2,37 @@ import Header from "../../components/Header";
 import Experiencia from "./components/Experiencia"
 import Proyectos from "./components/Proyectos"
 import Estudios from "./components/Estudios"
-import Idiomas from "./components/Idiomas";
 import SoftSkills from "./components/SoftSkills";
-import Footer from "../../components/Footer";
+import useReveal from "../../hooks/useReveal";
 
 const Home = () => {
 
-    return(
-        <>
+  const experienciaRef = useReveal();
+  const proyectosRef = useReveal();
+  const estudiosRef = useReveal();
+  const softSkillsRef = useReveal();
 
-        <Header/>
-        
-      <section id="experiencia">
+  return (
+    <>
+      <Header />
+
+      <section id="inicio" ref={experienciaRef} className="reveal">
         <Experiencia />
       </section>
 
-      <section id="proyectos">
+      <section id="proyectos" ref={proyectosRef} className="reveal">
         <Proyectos />
       </section>
 
-      <section id="estudios">
+      <section id="estudios" ref={estudiosRef} className="reveal">
         <Estudios />
       </section>
 
-      <section id="idiomas">
-        <Idiomas />
-      </section>
-
-      <section id="softskills">
+      <section id="softskills" ref={softSkillsRef} className="reveal">
         <SoftSkills />
       </section>
-
-        <Footer/>
-
-        </>
-    )
+    </>
+  )
 
 }
 

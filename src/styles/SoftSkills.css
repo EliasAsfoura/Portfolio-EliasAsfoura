@@ -1,36 +1,70 @@
+
 .SoftSkillsBox {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 30px;
+  align-items: stretch;
+  width: calc(100% - 32px);
+  max-width: 896px;
+  box-sizing: border-box;
+  margin: 30px auto;
+  color: white;
 }
 
 .SoftSkillsList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  justify-content: center;
+  width: 100%;
 }
 
 .SoftSkillCard {
-  width: 280px;
+  width: auto;
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid #f7f7f7;
   padding: 15px 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .SoftSkillCard:hover {
-    box-shadow: 0 4px 15px rgb(150, 150, 150);
-    transform: scale(1.03);
+  box-shadow: 0 6px 18px whitesmoke;
+  transform: translateY(-3px);
 }
 
 .SoftSkillCard h3 {
   color: #0166ff;
 }
 
-.SoftSkillCard p{
-    color: rgb(255, 255, 255);
-    font-weight: 300;
+.SoftSkillCard p {
+  color: white;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .SoftSkillsBox {
+    max-width: 672px;
+  }
+
+  .SoftSkillsList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .SoftSkillsList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .SoftSkillCard {
+    transition: none;
+  }
+
+  .SoftSkillCard:hover {
+    transform: none;
+  }
 }

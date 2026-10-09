@@ -1,17 +1,36 @@
 .ProyectosBox {
     display: flex;
-    align-items: center;
-    justify-items: center;
     flex-direction: column;
-    margin: 30px;
+    align-items: center;
+    width: min(90%, 720px);
+    margin: 30px auto;
     gap: 30px;
+    color: white;
+}
+@media (max-width: 768px) {
+    .ProyectosBox {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 95%;
+    }
 }
 
 .CardProyectos {
     display: flex;
     align-items: center;
     gap: 20px;
-    width: fit-content;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .CardProyectos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 }
 
 .CardProyectos h3 {
@@ -19,16 +38,21 @@
     font-weight: 500;
     text-align: center;
     font-size: 16px;
-    line-height: 1.4;
 }
 
 .imgProyecto {
     width: 400px;
-    filter: blur(0.5px);
     height: 200px;
-    border-radius: 10px;
     object-fit: cover;
+    border-radius: 10px;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .imgProyecto {
+        width: 300px;
+        height: 150px;
+    }
 }
 
 .imgProyecto:hover {
